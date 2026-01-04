@@ -1,0 +1,23 @@
+// Line clamp utility for task descriptions
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow:  hidden;
+}
+
+// Slide down animation for create form
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform:  translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out;
+}

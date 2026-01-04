@@ -1,0 +1,75 @@
+<div class="max-w-6xl mx-auto">
+  <!-- Hero Section -->
+  <div class="text-center mb-16">
+    <div class="mb-6">
+      <svg class="w-20 h-20 mx-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">
+        </path>
+      </svg>
+    </div>
+    <h1 class="text-6xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+      Welcome to Task Manager
+    </h1>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      A simple and elegant way to manage your daily tasks.   Built with
+      <span class="font-semibold text-blue-600">Java Spring Boot</span> backend
+      and <span class="font-semibold text-red-600">Angular</span> frontend.
+    </p>
+  </div>
+
+  <!-- Feature Cards -->
+  <div class="grid md:grid-cols-3 gap-8 mb-16">
+    <div class="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+      <div class="text-green-500 mb-6 transform group-hover:scale-110 transition-transform">
+        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-900 mb-3">Create Tasks</h3>
+      <p class="text-gray-600">
+        Easily add new tasks with titles and descriptions.
+      </p>
+    </div>
+
+    <div class="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+      <div class="text-blue-500 mb-6 transform group-hover:scale-110 transition-transform">
+        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+          </path>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-900 mb-3">Track Progress</h3>
+      <p class="text-gray-600">
+        Mark tasks as completed and track your productivity.
+      </p>
+    </div>
+
+    <div class="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+      <div class="text-purple-500 mb-6 transform group-hover:scale-110 transition-transform">
+        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+          </path>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-900 mb-3">Search & Filter</h3>
+      <p class="text-gray-600">
+        Find tasks quickly with search and filter options.
+      </p>
+    </div>
+  </div>
+
+  <!-- CTA Button -->
+  <div class="text-center">
+    <a
+      routerLink="/tasks"
+      class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-lg font-semibold rounded-xl shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105">
+      <span>View My Tasks</span>
+      <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      </svg>
+    </a>
+  </div>
+</div>
