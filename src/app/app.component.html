@@ -15,7 +15,8 @@
       </a>
 
       <!-- Navigation Links -->
-      <div class="flex space-x-1">
+      <div class="flex items-center space-x-1">
+        <!-- Home Link (always visible) -->
         <a
           routerLink="/"
           routerLinkActive="bg-blue-800 font-semibold"
@@ -23,12 +24,68 @@
           class="px-4 py-2 rounded-md hover:bg-blue-800 transition cursor-pointer">
           Home
         </a>
+
+        <!-- Tasks Link (only when logged in) -->
         <a
+          *ngIf="authService.isLoggedIn"
           routerLink="/tasks"
           routerLinkActive="bg-blue-800 font-semibold"
           class="px-4 py-2 rounded-md hover:bg-blue-800 transition cursor-pointer">
           Tasks
         </a>
+
+        <!-- Login/Register Links (only when NOT logged in) -->
+        <ng-container *ngIf="! authService.isLoggedIn">
+          <a
+            routerLink="/login"
+            routerLinkActive="bg-blue-800 font-semibold"
+            class="px-4 py-2 rounded-md hover:bg-blue-800 transition cursor-pointer">
+            Login
+          </a>
+          <a
+            routerLink="/register"
+            routerLinkActive="bg-blue-800 font-semibold"
+            class="px-4 py-2 rounded-md bg-green-600 hover:bg-green-700 transition cursor-pointer">
+            Sign Up
+          </a>
+        </ng-container>
+
+        <!-- User Menu (only when logged in) -->
+        <div *ngIf="authService. isLoggedIn" class="relative ml-3">
+          <button
+            (click)="toggleUserMenu()"
+            class="flex items-center space-x-2 px-4 py-2 rounded-md hover:bg-blue-800 transition cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+              </path>
+            </svg>
+            <span class="font-semibold">{{ currentUser?.username }}</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div
+            *ngIf="showUserMenu"
+            class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl py-2 z-50">
+            <div class="px-4 py-2 border-b border-gray-200">
+              <p class="text-sm text-gray-500">Signed in as</p>
+              <p class="text-sm font-semibold text-gray-900 truncate">{{ currentUser?.email }}</p>
+            </div>
+            <button
+              (click)="logout()"
+              class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                </path>
+              </svg>
+              Logout
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

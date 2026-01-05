@@ -12,7 +12,7 @@
       Welcome to Task Manager
     </h1>
     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-      A simple and elegant way to manage your daily tasks.   Built with
+      A simple and elegant way to manage your daily tasks.  Built with
       <span class="font-semibold text-blue-600">Java Spring Boot</span> backend
       and <span class="font-semibold text-red-600">Angular</span> frontend.
     </p>
@@ -36,7 +36,7 @@
       <div class="text-blue-500 mb-6 transform group-hover:scale-110 transition-transform">
         <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h. 01">
           </path>
         </svg>
       </div>
@@ -61,15 +61,35 @@
     </div>
   </div>
 
-  <!-- CTA Button -->
+  <!-- CTA Buttons -->
   <div class="text-center">
-    <a
-      routerLink="/tasks"
-      class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-lg font-semibold rounded-xl shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105">
-      <span>View My Tasks</span>
-      <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-      </svg>
-    </a>
+    <!-- Show different buttons based on login status -->
+    <div *ngIf="!authService.isLoggedIn" class="flex gap-4 justify-center">
+      <a
+        routerLink="/register"
+        class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white text-lg font-semibold rounded-xl shadow-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105">
+        <span>Get Started - It's Free!</span>
+        <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+
+      <a
+        routerLink="/login"
+        class="inline-flex items-center px-8 py-4 bg-white text-blue-600 text-lg font-semibold rounded-xl shadow-lg border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
+        <span>Sign In</span>
+      </a>
+    </div>
+
+    <div *ngIf="authService.isLoggedIn">
+      <a
+        routerLink="/tasks"
+        class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-lg font-semibold rounded-xl shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105">
+        <span>View My Tasks</span>
+        <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
   </div>
 </div>

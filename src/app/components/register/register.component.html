@@ -1,0 +1,123 @@
+<div class="min-h-[calc(100vh-12rem)] flex items-center justify-center py-12 px-4">
+  <div class="max-w-md w-full">
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <div class="flex justify-center mb-4">
+        <svg class="w-16 h-16 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z">
+          </path>
+        </svg>
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 mb-2">Create Account</h2>
+      <p class="text-gray-600">Sign up to start managing your tasks</p>
+    </div>
+
+    <!-- Register Form -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8">
+      <form (ngSubmit)="onSubmit()">
+        <!-- Error Message -->
+        <div *ngIf="error" class="mb-6 bg-red-50 border-2 border-red-200 rounded-lg p-4">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+              </path>
+            </svg>
+            <div class="flex-1">
+              <p class="text-red-700 text-sm font-semibold">{{ error }}</p>
+
+              <!-- Validation Errors List -->
+              <ul *ngIf="validationErrors. length > 0" class="mt-2 ml-4 list-disc text-red-600 text-sm">
+                <li *ngFor="let validationError of validationErrors">{{ validationError }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Username Field -->
+        <div class="mb-4">
+          <label for="username" class="block text-sm font-semibold text-gray-700 mb-2">
+            Username
+          </label>
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="registerRequest.username"
+            name="username"
+            required
+            placeholder="Choose a username"
+            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none">
+        </div>
+
+        <!-- Email Field -->
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="registerRequest.email"
+            name="email"
+            required
+            placeholder="Enter your email"
+            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none">
+        </div>
+
+        <!-- Password Field -->
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="registerRequest.password"
+            name="password"
+            required
+            placeholder="Create a password (min 6 characters)"
+            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none">
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div class="mb-6">
+          <label for="confirmPassword" class="block text-sm font-semibold text-gray-700 mb-2">
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            id="confirmPassword"
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            required
+            placeholder="Confirm your password"
+            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none">
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          [disabled]="loading"
+          class="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-3 px-6 rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2">
+          <svg *ngIf="loading" class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <span *ngIf="! loading">Create Account</span>
+          <span *ngIf="loading">Creating account...</span>
+        </button>
+      </form>
+
+      <!-- Login Link -->
+      <div class="mt-6 text-center">
+        <p class="text-gray-600">
+          Already have an account?
+          <a routerLink="/login" class="text-blue-600 hover:text-blue-700 font-semibold transition">
+            Sign In
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
